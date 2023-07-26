@@ -1,14 +1,17 @@
+import { Navigate, Route, Routes } from 'react-router-dom';
+
 function App() {
 	return (
-		<div className="p-8 text-center">
-			<h1 className="text-4xl font-bold text-blue-800 tracking-wide">
-				Your settings are well configured
-			</h1>
-			<p className="mt-5">
-				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, cum
-				reprehenderit. Doloremque corrupti aliquid nihil magnam impedit, quisquam soluta?
-				Expedita et dolorum quo laudantium odio esse, distinctio nulla hic ea.
-			</p>
+		<div className="container mx-auto my-4">
+			<Routes>
+				<Route path="/" element={<h1>Home</h1>} />
+				<Route path="/new" element={<h1>New</h1>} />
+				<Route path="/:id">
+					<Route index element={<h1>Show</h1>} />
+					<Route path="edit" element={<h1>Edit</h1>} />
+				</Route>
+				<Route path="*" element={<Navigate to="/" />} />
+			</Routes>
 		</div>
 	);
 }
