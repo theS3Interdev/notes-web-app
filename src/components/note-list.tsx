@@ -26,7 +26,12 @@ type SimplifiedNote = {
 	id: string;
 };
 
-export function NoteList({ availableTags, notes, onUpdateTag, onDeleteTag }: NoteListProps) {
+export function NoteList({
+	availableTags,
+	notes,
+	onUpdateTag,
+	onDeleteTag,
+}: NoteListProps) {
 	const [editTagsModalIsOpen, setEditTagsModalIsOpen] = useState(false);
 	const [title, setTitle] = useState('');
 	const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
@@ -45,14 +50,17 @@ export function NoteList({ availableTags, notes, onUpdateTag, onDeleteTag }: Not
 		<>
 			<Row className="align-items-center mb-4">
 				<Col>
-					<h1>React Notes</h1>
+					<h1>Notes</h1>
 				</Col>
 				<Col xs="auto">
 					<Stack gap={2} direction="horizontal">
 						<Link to="/new">
 							<Button variant="primary">Create</Button>
 						</Link>
-						<Button onClick={() => setEditTagsModalIsOpen(true)} variant="outline-secondary">
+						<Button
+							onClick={() => setEditTagsModalIsOpen(true)}
+							variant="outline-secondary"
+						>
 							Edit Tags
 						</Button>
 					</Stack>
@@ -63,7 +71,11 @@ export function NoteList({ availableTags, notes, onUpdateTag, onDeleteTag }: Not
 					<Col>
 						<Form.Group controlId="title">
 							<Form.Label>Title</Form.Label>
-							<Form.Control type="text" value={title} onChange={(e) => setTitle(e.target.value)} />
+							<Form.Control
+								type="text"
+								value={title}
+								onChange={(e) => setTitle(e.target.value)}
+							/>
 						</Form.Group>
 					</Col>
 					<Col>
@@ -118,7 +130,11 @@ function NoteCard({ id, title, tags }: SimplifiedNote) {
 				<Stack gap={2} className="align-items-center justify-content-center h-100">
 					<span className="fs-5">{title}</span>
 					{tags.length > 0 && (
-						<Stack gap={1} direction="horizontal" className="justify-content-center flex-wrap">
+						<Stack
+							gap={1}
+							direction="horizontal"
+							className="justify-content-center flex-wrap"
+						>
 							{tags.map((tag) => (
 								<Badge className="text-truncate" key={tag.id}>
 									{tag.label}
