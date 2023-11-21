@@ -40,3 +40,5 @@ npm run build
 1. TypeScript
 1. Tailwind CSS
 1. Vite.JS
+1. GitHub Actions
+1. GitHub Pages
